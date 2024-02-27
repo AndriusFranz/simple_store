@@ -1,18 +1,35 @@
+<style>
+  table {
+    width: 50%;
+  }
+  th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px; 
+  }
+  th {
+    background-color: #D6EAF8; 
+  }
+  tr:nth-child(even) {
+    background-color: #AED6F1;
+  }
+</style>
 <h1>Listing Products</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-    <th>Stock Quantity</th>
-  </tr>
-
-  <% @products.each do |product| %>
     <tr>
-      <td><%= link_to product.title, product_path(product) %></td>
-      <td><%= product.price %></td>
-      <td><%= product.stock_quantity %></td>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Stock Quantity</th>
+      <th>Category</th>
     </tr>
-  <% end %>
-</table>
 
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.title, product_path(product) %></td>
+        <td><%= product.price %></td>
+        <td><%= product.stock_quantity %></td>
+        <td><%= product.category.name %></td>
+      </tr>
+    <% end %>
+</table>
